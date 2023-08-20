@@ -13,7 +13,7 @@ h1 {
 #board {
     width: 40%;
     aspect-ratio: 1 / 1;
-    background-color: lightblue;
+    background-color: #bbd6e5;
     border: 4px solid slategray;
     border-radius: 10px;
     margin: 0 auto;
@@ -22,6 +22,6 @@ h1 {
 }
 
 #board img {
-    width: 16.4%;
+    width: 12%;
     aspect-ratio: 1 / 1;
 }

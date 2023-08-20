@@ -1,18 +1,24 @@
 var minions = ["Bob","Stuart","Kevin","Otto","Purple","Jorge","Banana"];
 var board = [];
 var score = 0;
+var rows = 8;
+var cols = 8;
 
 var currTile;
 var otherTile;
 
 window.onload = function() {
     startGame();
+    
+    window.setInterval(function(){
+        mashMinion();
+    }, 100);
 }
 
 function startGame() {
-    for (let r = 0; r < 6; r++) {
+    for (let r = 0; r < rows; r++) {
         let row = [];
-        for (let c = 0; c < 6; c++) {
+        for (let c = 0; c < cols; c++) {
             let tile = document.createElement("img");
             tile.id = r.toString() + "-" + c.toString();
             tile.src = "./assets/" + minions[Math.floor(Math.random() * minions.length)] + ".png"
@@ -74,5 +80,37 @@ function dragEnd() {
         let otherImg = otherTile.src;
         currTile.src = otherImg;
         otherTile.src = currImg;
+    }
+}
+
+function mashMinion() {
+    mashThree();
+}
+
+function mashThree() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols-2; c++) {
+            let minion1 = board[r][c];
+            let minion2 = board[r][c+1];
+            let minion3 = board[r][c+2];
+            if (minion1.src == minion2.src && minion2.src == minion3.src && !minion1.src.includes("blank")) {
+                minion1.src = "./assets/blank.png";
+                minion2.src = "./assets/blank.png";
+                minion3.src = "./assets/blank.png";
+            }
+        }
+    }
+
+    for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows-2; r++) {
+            let minion1 = board[r][c];
+            let minion2 = board[r+1][c];
+            let minion3 = board[r+2][c];
+            if (minion1.src == minion2.src && minion2.src == minion3.src && !minion1.src.includes("blank")) {
+                minion1.src = "./assets/blank.png";
+                minion2.src = "./assets/blank.png";
+                minion3.src = "./assets/blank.png";
+            }
+        }
     }
 }
