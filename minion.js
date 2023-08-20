@@ -13,6 +13,7 @@ window.onload = function() {
     window.setInterval(function(){
         mashMinion();
         slideMinion();
+        generateMinion();
     }, 100);
 }
 
@@ -165,6 +166,14 @@ function slideMinion(){
         }
         for (let r = ind; r>=0;r--) {
             board[r][c].src = "./assets/blank.png";
+        }
+    }
+}
+
+function generateMinion() {
+    for (c=0; c < columns; c++) {
+        if (board[0][c].src.includes("blank")) {
+            board[0][c].src = "./assets/" + minions[Math.floor(Math.random() * minions.length)] + ".png"        
         }
     }
 }
