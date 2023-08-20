@@ -96,64 +96,13 @@ function dragEnd() {
             let otherImg = otherTile.src;
             currTile.src = otherImg;
             otherTile.src = currImg;
-        } else {
-            mashFour();
         }
     }
 }
 
 function mashMinion() {
-    // mashFour();
     mashThree();
     document.getElementById("score").innerText = score;
-}
-
-function mashFour() {
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols-3; c++) {
-            let minionType = "NA";
-            let minion1 = board[r][c];
-            let minion2 = board[r][c+1];
-            let minion3 = board[r][c+2];
-            let minion4 = board[r][c+3];
-            for (let i = 0; i < minions.length; i++) {
-                if (minion1.src.includes(minions[i])) {
-                    minionType = minions[i]
-                    break;
-                }
-            }
-            if (minion2.src.includes(minionType) && minion3.src.includes(minionType) && minion4.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/" + minionType + "_4.png";
-                minion4.src = "./assets/blank.png";
-                score += 50;
-            }
-        }
-    }
-
-    for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < rows-3; r++) {
-            let minionType = "NA";
-            let minion1 = board[r][c];
-            let minion2 = board[r+1][c];
-            let minion3 = board[r+2][c];
-            let minion4 = board[r+3][c];
-            for (let i = 0; i < minions.length; i++) {
-                if (minion1.src.includes(minions[i])) {
-                    minionType = minions[i]
-                    break;
-                }
-            }
-            if (minion2.src.includes(minionType) && minion3.src.includes(minionType) && minion4.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
-                minion4.src = "./assets/" + minionType + "_4.png";
-                score += 50;
-            }
-        }
-    }
 }
 
 function mashThree() {
@@ -216,9 +165,6 @@ function checkMinions() {
                 }
             }
             if (minion2.src.includes(minionType) && minion3.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
                 return true;
             }
         }
@@ -236,9 +182,6 @@ function checkMinions() {
                 }
             }
             if (minion2.src.includes(minionType) && minion3.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
                 return true;
             }
         }
