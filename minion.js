@@ -167,9 +167,6 @@ function checkMinions() {
                 }
             }
             if (minion2.src.includes(minionType) && minion3.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
                 return true;
             }
         }
@@ -187,9 +184,6 @@ function checkMinions() {
                 }
             }
             if (minion2.src.includes(minionType) && minion3.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
                 return true;
             }
         }
