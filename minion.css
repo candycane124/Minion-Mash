@@ -6,14 +6,14 @@ body {
     text-align: center;
 }
 
-h1 {
+h1, h2 {
     color: black;
 }
 
 #board {
     width: 40%;
     aspect-ratio: 1 / 1;
-    background-color: #bbd6e5;
+    background-color: lightblue;
     border: 4px solid slategray;
     border-radius: 10px;
     margin: 0 auto;
@@ -22,6 +22,6 @@ h1 {
 }
 
 #board img {
-    width: 12%;
+    width: 12.5%;
     aspect-ratio: 1 / 1;
 }
