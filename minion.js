@@ -7,6 +7,10 @@ var cols = 8;
 var currTile;
 var otherTile;
 
+var sfx = {
+    mashThree: new Audio('baaa.mp3')
+}
+
 window.onload = function() {
     startGame();
     
@@ -16,8 +20,6 @@ window.onload = function() {
         generateMinion();
     }, 100);
 }
-
-let baaa = new Audio('baaa.mp3');
 
 function startGame() {
     for (let r = 0; r < rows; r++) {
@@ -113,7 +115,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
-                baaa.play();
+                sfx.mashThree.play();
             }
         }
     }
