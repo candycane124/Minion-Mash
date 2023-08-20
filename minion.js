@@ -5,6 +5,8 @@ var rows = 8;
 var cols = 8;
 
 var baaa = new Audio("assets/baaa.mp3");
+var yay = new Audio("assets/yay.mp3");
+var sfx = ["baaa", "yay"];
 
 var currTile;
 var otherTile;
@@ -113,7 +115,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
-                baaa.play();
+                sfx[Math.floor(Math.random() * sfx.length)].play();
             }
         }
     }
@@ -127,7 +129,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
-                baaa.play();
+                sfx[Math.floor(Math.random() * sfx.length)].play();
             }
         }
     }
