@@ -6,5 +6,5 @@ function playAgain() {
 }
 
 function leave() {
-    document.location.href = "www.youtube.com";
+    document.location.href = "https://tenor.com/view/what-minions-minyonlar-sar%C4%B1minyon-minion-gif-19408773";
 }
