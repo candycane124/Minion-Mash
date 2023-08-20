@@ -171,9 +171,9 @@ function slideMinion(){
 }
 
 function generateMinion() {
-    for (c=0; c < columns; c++) {
+    for (let c = 0; c < columns; c++) {
         if (board[0][c].src.includes("blank")) {
-            board[0][c].src = "./assets/" + minions[Math.floor(Math.random() * minions.length)] + ".png"        
+            board[0][c].src = "./assets/" + minions[Math.floor(Math.random() * minions.length)] + ".png";        
         }
     }
 }
