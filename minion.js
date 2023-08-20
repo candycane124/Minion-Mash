@@ -4,6 +4,8 @@ var score = 0;
 var rows = 8;
 var cols = 8;
 
+var baaa = new Audio('baaa.mp3');
+
 var currTile;
 var otherTile;
 
@@ -102,6 +104,7 @@ function mashMinion() {
 }
 
 function mashThree() {
+    baaa.play();
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols-2; c++) {
             let minion1 = board[r][c];
