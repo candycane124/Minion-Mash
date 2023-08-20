@@ -127,6 +127,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
+                baaa.play();
             }
         }
     }
