@@ -96,64 +96,13 @@ function dragEnd() {
             let otherImg = otherTile.src;
             currTile.src = otherImg;
             otherTile.src = currImg;
-        } else {
-            mashFour();
         }
     }
 }
 
 function mashMinion() {
-    // mashFour();
     mashThree();
     document.getElementById("score").innerText = score;
-}
-
-function mashFour() {
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols-3; c++) {
-            let minionType = "NA";
-            let minion1 = board[r][c];
-            let minion2 = board[r][c+1];
-            let minion3 = board[r][c+2];
-            let minion4 = board[r][c+3];
-            for (let i = 0; i < minions.length; i++) {
-                if (minion1.src.includes(minions[i])) {
-                    minionType = minions[i]
-                    break;
-                }
-            }
-            if (minion2.src.includes(minionType) && minion3.src.includes(minionType) && minion4.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/" + minionType + "_4.png";
-                minion4.src = "./assets/blank.png";
-                score += 50;
-            }
-        }
-    }
-
-    for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < rows-3; r++) {
-            let minionType = "NA";
-            let minion1 = board[r][c];
-            let minion2 = board[r+1][c];
-            let minion3 = board[r+2][c];
-            let minion4 = board[r+3][c];
-            for (let i = 0; i < minions.length; i++) {
-                if (minion1.src.includes(minions[i])) {
-                    minionType = minions[i]
-                    break;
-                }
-            }
-            if (minion2.src.includes(minionType) && minion3.src.includes(minionType) && minion4.src.includes(minionType)) {
-                minion1.src = "./assets/blank.png";
-                minion2.src = "./assets/blank.png";
-                minion3.src = "./assets/blank.png";
-                minion4.src = "./assets/" + minionType + "_4.png";
-                score += 50;
-            }
-        }
-    }
 }
 
 function mashThree() {
@@ -173,6 +122,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
+                console.log("mashed col");
                 score += 25;
                 sfx[Math.floor(Math.random() * sfx.length)].play();
             }
@@ -194,6 +144,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
+                console.log("mashed row");
                 score += 25;
                 sfx[Math.floor(Math.random() * sfx.length)].play();
             }
@@ -279,15 +230,6 @@ function countDown() {
 }
 
 function gameOver() {
-    // let username = prompt("Enter your username: ", "Anon");
-    // if (username == null || string.trim(username) == "") {
-    //     username = "Anon";
-    // }
-    if (confirm("Time's Up!\nHere is your final score " + score.toString() + "\nPlay Again?")) {
-        txt = "You pressed OK!";
-        location.reload();
-    } else {
-        txt = "You pressed Cancel!";
-        document.location.href = "./scores.html"
-    }
+    alert("Game Over!\nYou scored " + score.toString() + " points!");
+    document.location.href = "./gameover.html";
 }
