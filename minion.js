@@ -104,7 +104,6 @@ function mashMinion() {
 }
 
 function mashThree() {
-    baaa.play();
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols-2; c++) {
             let minion1 = board[r][c];
@@ -114,6 +113,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
+                baaa.play();
             }
         }
     }
