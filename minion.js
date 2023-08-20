@@ -115,7 +115,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
-                sfx[Math.floor(Math.random() * sfx.length)].play();
+                sfx[(Math.random() * sfx.length)].play();
             }
         }
     }
@@ -129,7 +129,7 @@ function mashThree() {
                 minion1.src = "./assets/blank.png";
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
-                sfx[Math.floor(Math.random() * sfx.length)].play();
+                sfx[(Math.random() * sfx.length)].play();
             }
         }
     }
