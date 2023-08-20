@@ -12,6 +12,7 @@ window.onload = function() {
     
     window.setInterval(function(){
         mashMinion();
+        slideMinion();
     }, 100);
 }
 
@@ -58,6 +59,10 @@ function dragDrop() {
 }
 
 function dragEnd() {
+    //if either chosen tile or tile that is to be swaped is blank - no swapping occurs
+    if (currTile.src.includes("blank") || otherTile.src.includes("blank")){
+        return;
+    }
 
     let currCoords = currTile.id.split("-");
     let r = parseInt(currCoords[0]);
@@ -80,6 +85,14 @@ function dragEnd() {
         let otherImg = otherTile.src;
         currTile.src = otherImg;
         otherTile.src = currImg;
+        //Check to make sure there are 3 minions in a row/column to crush
+        let validMove = checkMinions();
+        if (!validMove) {
+            let currImg = currTile.src;
+            let otherImg = otherTile.src;
+            currTile.src = otherImg;
+            otherTile.src = currImg;
+        }
     }
 }
 
@@ -111,6 +124,47 @@ function mashThree() {
                 minion2.src = "./assets/blank.png";
                 minion3.src = "./assets/blank.png";
             }
+        }
+    }
+}
+
+function checkMinions() {
+    //Check for three minions in a row 
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols-2; c++) {
+            let minion1 = board[r][c];
+            let minion2 = board[r][c+1];
+            let minion3 = board[r][c+2];
+            if (minion1.src == minion2.src && minion2.src == minion3.src && !minion1.src.includes("blank")) {
+                return true;
+            }
+        }
+    }
+    // Check for three minions in a column
+    for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows-2; r++) {
+            let minion1 = board[r][c];
+            let minion2 = board[r+1][c];
+            let minion3 = board[r+2][c];
+            if (minion1.src == minion2.src && minion2.src == minion3.src && !minion1.src.includes("blank")) {
+               return true;
+            }
+        }
+    }
+    return false
+}
+
+function slideMinion(){
+    for (let c=0; c< cols; c++){
+        let ind = rows - 1;
+        for(let r = cols-1; r>=0; r--){
+            if(!board[r][c].src.includes("blank")){
+                board[ind][c].src = board[r][c].src;
+                ind-= 1;
+            }
+        }
+        for (let r = ind; r>=0;r--) {
+            board[r][c].src = "./assets/blank.png";
         }
     }
 }
