@@ -4,7 +4,7 @@ var score = 0;
 var rows = 8;
 var cols = 8;
 
-var baaa = new Audio('baaa.mp3');
+var baaa = new Audio("assets/baaa.mp3");
 
 var currTile;
 var otherTile;
