@@ -1,4 +1,4 @@
-var minions = ["Bob","Stuart","Kevin","Otto","Purple","Carl","Banana"];
+var minions = ["Bob","Stuart","Kevin","Otto","Purple","Gru","Banana"];
 var board = [];
 var score = 0;
 var rows = 8;
